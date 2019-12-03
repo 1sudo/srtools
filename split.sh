@@ -23,4 +23,4 @@ echo "terminal4=$terminal4" >> $HOME/.scripts/variables
 # Run things inside each terminal session
 makeitso "runCommandInTerminal $terminal1 htop"
 makeitso "runCommandInTerminal $terminal2 srtools"
-
+makeitso "runCommandInTerminal $terminal4 exit"

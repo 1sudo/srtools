@@ -118,7 +118,7 @@ updates_menu() {
       gen_confirm "Update SRtools?" "$srtools_scripts_path/inc/update_srtools.sh" "exit 0"
       ;;
     2)
-      gen_confirm "Update Galaxy IP?" "$srtools_scripts_path/inc/update-galaxy.sh" "exit 0"
+      gen_confirm "Update Galaxy IP?" "$srtools_scripts_path/inc/update_galaxy.sh" "exit 0"
       ;;
     3)
       main_menu
