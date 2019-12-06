@@ -108,7 +108,7 @@ updates_menu() {
 
   OPTIONS=(1 "Update SRtools"
            2 "Update Galaxy IP Address"
-	         3 "Back to previous menu")
+	   3 "Back to previous menu")
 
   # height, width, choice height, title, menu question, options array
   gen_menu "15" "40" "5" "Wartools Menu" "What would you like to update?" "${OPTIONS[@]}"
