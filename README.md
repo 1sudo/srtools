@@ -21,6 +21,9 @@ export engine_repo_user="your_github_username"
 export engine_repo_name="engine3"
 export engine_repo_branch="master"
 
+# Does your Core3 repo support automatic submodule importing and compiling without cmake commands?
+export pub10_compile="y"
+
 export core3_repo_url="$protocol://$git_site/$core3_repo_user/$core3_repo_name.git"
 export engine_repo_url="$protocol://$git_site/$engine_repo_user/$engine_repo_name.git"
 ```
