@@ -45,8 +45,9 @@ gen_confirm() {
 main_menu() {
 
   OPTIONS=(1 "Server Management"
-  	   2 "Configuration"
-	   3 "Updates")
+           2 "Version Control"
+  	   3 "Configuration"
+	   4 "Updates")
 
   # height, width, choice height, title, menu question, options array
   gen_menu "15" "40" "8" "SRtools Menu" "What would you like to manage?" "${OPTIONS[@]}"
@@ -56,9 +57,12 @@ main_menu() {
       manage_menu
       ;;
     2)
-      config_menu
+      version_menu
       ;;
     3)
+      config_menu
+      ;;
+    4)
       updates_menu
       ;;
   esac
@@ -84,11 +88,34 @@ manage_menu() {
 
 }
 
+version_menu() {
+
+  OPTIONS=(1 "Re-clone preserving databases"
+           2 "Pull latest changes"
+           3 "Main Menu")
+
+  # height, width, choice height, title, menu question, options array
+  gen_menu "20" "40" "15" "Version Control Menu" "What would you like to do?" "${OPTIONS[@]}"
+
+  case $CHOICE in
+    1)
+      gen_confirm "Re-clone Core3, preserving databases?" "$srtools_scripts_path/inc/pull.sh hard" main_menu
+      ;;
+    2)
+      gen_confirm "Pull latest changes?" "$srtools_scripts_path/inc/pull.sh soft" main_menu
+      ;;
+    3)
+      main_menu
+      ;;
+  esac
+
+}
 
 config_menu() {
 
   OPTIONS=(1 "Configure Git Credentials"
-           2 "Back to previous menu")
+           2 "Setup Core3"
+           3 "Back to previous menu")
 
   # height, width, choice height, title, menu question, options array
   gen_menu "15" "40" "2" "Configuration Menu" "What would you like to configure?" "${OPTIONS[@]}"
@@ -98,6 +125,9 @@ config_menu() {
       configure_git_input
       ;;
     2)
+      gen_confirm "Download, build, and configure Core3?" "$srtools_scripts_path/inc/setup.sh migrate_fresh" main_menu
+      ;;
+    3)
       main_menu
       ;;
   esac
@@ -108,7 +138,7 @@ updates_menu() {
 
   OPTIONS=(1 "Update SRtools"
            2 "Update Galaxy IP Address"
-	         3 "Back to previous menu")
+	   3 "Back to previous menu")
 
   # height, width, choice height, title, menu question, options array
   gen_menu "15" "40" "5" "Wartools Menu" "What would you like to update?" "${OPTIONS[@]}"

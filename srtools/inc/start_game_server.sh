@@ -9,7 +9,9 @@ terminals=$(cat "$scripts_path/variables" | grep terminal)
 terminal3=$(echo $terminals | awk '{print $3}' | cut -d '=' -f 2)
 
 # Change directory to the game server root
-qdbus org.kde.yakuake /yakuake/sessions runCommandInTerminal $terminal3 "cd $HOME/workspace/SentinelsRepublicServer/bin/"
+qdbus org.kde.yakuake /yakuake/sessions runCommandInTerminal $terminal3 "cd $HOME/workspace/Core3/MMOCoreORB/bin/"
+
+logger SRTools: "Starting game server..."
 
 # Run the game server in terminal 3
-qdbus org.kde.yakuake /yakuake/sessions runCommandInTerminal $terminal3 $HOME/workspace/SentinelsRepublicServer/bin/core3
+qdbus org.kde.yakuake /yakuake/sessions runCommandInTerminal $terminal3 $HOME/workspace/Core3/MMOCoreORB/bin/core3
